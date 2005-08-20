@@ -1,0 +1,13 @@
+Revision history for Perl extension HTML::Template::Extension.
+
+0.03 (2005-08-18)
+=================
+- Removed a bug.
+
+0.02 (2005-08-17)
+=================
+- Minor changes
+
+0.01 (2005-08-16)
+=================
+- First release derived from HTML::Template::Extension

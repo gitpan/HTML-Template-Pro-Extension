@@ -9,7 +9,7 @@ use HTML::Template::Pro;
 
 use base "HTML::Template::Pro";
 
-$HTML::Template::Pro::Extension::VERSION      = "0.03";
+$HTML::Template::Pro::Extension::VERSION      = "0.04";
 sub Version     { $HTML::Template::Pro::Extension::VERSION; }
 
 my $fields 	= { 
@@ -68,12 +68,9 @@ sub output {
   if (exists $args{as}) {
     # delete old params settings
     $self->clear_param();
-    my %as = %{$args{as}};
-    foreach (keys %as) {
-      $self->param($_ => $as{$_});
-    }
+		$self->param(%{$args{as}});
   }
-  return $self->SUPER::output(%args);
+  return $self->SUPER::output(print_to => $args{print_to});
 }
 
 sub html {

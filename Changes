@@ -1,4 +1,12 @@
-Revision history for Perl extension HTML::Template::Extension.
+Revision history for Perl extension HTML::Template::Pro::Extension.
+
+0.05 (2005-09-14)
+=================
+- If you try to initialize H::T::P::Extention with some parameters that should
+  be routed to H::T::Pro, it doesn't work because H::T::P::Extension 
+	inizialize H::T::Pro with internal parameters. Now you can pass 
+	initializing parameters (like functions as an example) to H::T::P::Extension
+	that routed them to H::T::Pro.
 
 0.04 (2005-08-21)
 =================

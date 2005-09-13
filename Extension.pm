@@ -9,7 +9,7 @@ use HTML::Template::Pro;
 
 use base "HTML::Template::Pro";
 
-$HTML::Template::Pro::Extension::VERSION      = "0.04";
+$HTML::Template::Pro::Extension::VERSION      = "0.05";
 sub Version     { $HTML::Template::Pro::Extension::VERSION; }
 
 my $fields 	= { 
@@ -25,8 +25,30 @@ my $fields 	= {
 sub new {
 	my $proto = shift;
   my $class = ref($proto) || $proto;	
+	# valid HTML::Template::Pro parameter
+  my $htpoptions={
+		functions => {},
+		debug => 0,
+		max_includes => 10,
+		global_vars => 0,
+		no_includes => 0,
+		search_path_on_include => 0,
+		loop_context_vars => 1,
+		path => [],
+		associate => [],
+		case_sensitive => 0,
+		strict => 1,
+		die_on_bad_params => 0,
+		scalarref => '',
+		option => 'value'
+	};
+	# set the htp options with new parameters
+	my %opt							= @_;
+	foreach (keys %$htpoptions) {
+		$htpoptions->{$_} = $opt{$_} if (exists $opt{$_});
+	}
 	# carico il modulo HTML::Template::Pro
-	my $self						= {%$fields,%{new HTML::Template::Pro(scalarref => '',option => 'value',case_sensitive => 0, loop_context_vars => 1)}};
+	my $self						= {%$fields,%{new HTML::Template::Pro(%$htpoptions)}};
 	bless $self,$class;
 	$self->_init(@_);
   return $self;

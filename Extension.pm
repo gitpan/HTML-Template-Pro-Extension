@@ -9,7 +9,7 @@ use HTML::Template::Pro;
 
 use base "HTML::Template::Pro";
 
-$HTML::Template::Pro::Extension::VERSION      = "0.06";
+$HTML::Template::Pro::Extension::VERSION      = "0.07";
 sub Version     { $HTML::Template::Pro::Extension::VERSION; }
 
 my $fields 	= { 

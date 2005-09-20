@@ -1,9 +1,14 @@
 Revision history for Perl extension HTML::Template::Pro::Extension.
 
+0.07 (2005-09-20)
+=================
+- In vanguard mode, key can be start with an underscore (_) too because, for
+  example, some internal LOOP variable (__COUNTER__,...) start with it.
+
 0.06 (2005-09-19)
 =================
-- Nella modalita' vanguard (%....%), ora vengono accettate solo chiavi che 
-  iniziano per una lettere [A-Za-z]
+- In vanguard mode (%....) now is accepted only keys that start with alpha
+  characters [A-Za-z]
 
 0.05 (2005-09-14)
 =================

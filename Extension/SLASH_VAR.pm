@@ -1,6 +1,6 @@
 package HTML::Template::Pro::Extension::SLASH_VAR;
 
-$VERSION 			= "0.02";
+$VERSION 			= "0.03";
 sub Version 		{ $VERSION; }
 
 use Carp;
@@ -61,8 +61,8 @@ sub _vanguard_syntax {
 	my $template 	= shift;
 	# sintassi accettata %%....%% o %....% con .... che possono essere
 	# numeri, lettere , il punto. Tutto pero deve iniziare con una lettera
- 	$$template =~ s/%%([A-Za-z][-\w\/\.]+)%%/<TMPL_VAR NAME=$1>/g;
- 	$$template =~ s/%([A-Za-z][-\w\/\.]+)%/<TMPL_VAR NAME=$1>/g;
+ 	$$template =~ s/%%([_A-Za-z][-\w\/\.]+)%%/<TMPL_VAR NAME=$1>/g;
+ 	$$template =~ s/%([_A-Za-z][-\w\/\.]+)%/<TMPL_VAR NAME=$1>/g;
 }
 
 1;

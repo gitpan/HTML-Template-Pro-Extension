@@ -9,7 +9,7 @@ use HTML::Template::Pro;
 
 use base "HTML::Template::Pro";
 
-$HTML::Template::Pro::Extension::VERSION      = "0.07";
+$HTML::Template::Pro::Extension::VERSION      = "0.08";
 sub Version     { $HTML::Template::Pro::Extension::VERSION; }
 
 my $fields 	= { 
@@ -145,7 +145,7 @@ sub _reloadSource {
 	foreach my $plugin (values %{$self->{__plugins}}) {
 		foreach my $filter (@{$plugin->{filter}}) {
 			croak("HTML::Template::Pro::Extension : bad value set for filter parameter - must be a code ref or a hash ref.") unless ref $filter;
-			&$filter(\$src_orig);
+			&$filter(\$src_orig,$self);
 		}
 	}
 	$self->{source} = $src_orig;

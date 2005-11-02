@@ -1,6 +1,6 @@
 package HTML::Template::Pro::Extension::HEAD_BODY;
 
-$VERSION 			= "0.01";
+$VERSION 			= "0.02";
 sub Version 		{ $VERSION; }
 
 use Carp;
@@ -28,12 +28,12 @@ sub get_filter {
 sub _get_filter {
 	my $self = shift;
 	my @ret ;
-	if ($self->{autoDeleteHeader}) {
-		push @ret, sub {
-					my $tmpl = shift;
+	push @ret, sub {
+				my $tmpl 	= shift;
+				my $self	= shift;
+				if ($self->{autoDeleteHeader}) {
 					my $header;
 					if ($$tmpl =~s{(^.+?<body(?:[^>'"]*|".*?"|'.*?')+>)}{}msi) {
-						###$self->{header} = $&;
 						$self->{header} = $1;
 						&tokenizer_header($self);
 					} else {
@@ -42,8 +42,8 @@ sub _get_filter {
 						undef $self->{tokens};
 					}
 					$$tmpl =~ s{</body>.+}{}msi;
-				};
-	}
+				}
+			};
 	return @ret;
 }
 
@@ -53,11 +53,8 @@ sub autoDeleteHeader {
 		my $newvalue 	= shift;
 		return if ($newvalue == $s->{autoDeleteHeader});
 		$s->{autoDeleteHeader}=$newvalue;
-		# reload local filter
-		$s->_pushModule('HTML::Template::Pro::Extension::HEAD_BODY');
 	};
-	my $ret = $s->{autoDeleteHeader};
-	return 
+	return $s->{autoDeleteHeader};
 }
 
 sub tokenizer_header {

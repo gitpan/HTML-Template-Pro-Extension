@@ -2,14 +2,13 @@ package HTML::Template::Pro::Extension;
 
 use strict;
 use integer; # no floating point math so far!
-use strict; # and no funny business, either.
 
 use Carp;
 use HTML::Template::Pro;
 
 use base "HTML::Template::Pro";
 
-$HTML::Template::Pro::Extension::VERSION      = "0.08";
+$HTML::Template::Pro::Extension::VERSION      = "0.09";
 sub Version     { $HTML::Template::Pro::Extension::VERSION; }
 
 my $fields 	= { 

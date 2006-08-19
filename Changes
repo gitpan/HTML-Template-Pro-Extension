@@ -1,5 +1,10 @@
 Revision history for Perl extension HTML::Template::Pro::Extension.
 
+0.09 (2006-08-19)
+=================
+- H::T::P::Extension::HEAD_BODY::header_css now return also <link...> tags with
+  "rel" attribute equal to "stylesheet" and "type" equal to "text/css".
+
 0.08 (2005-11-02)
 =================
 - Now, when calling filters, the object is passed to filter as second parameter.

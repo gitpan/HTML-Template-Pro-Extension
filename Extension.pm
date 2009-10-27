@@ -8,7 +8,7 @@ use HTML::Template::Pro;
 
 use base "HTML::Template::Pro";
 
-$HTML::Template::Pro::Extension::VERSION      = "0.09";
+$HTML::Template::Pro::Extension::VERSION      = "0.10";
 sub Version     { $HTML::Template::Pro::Extension::VERSION; }
 
 my $fields 	= { 
@@ -88,7 +88,13 @@ sub output {
 	$self = $self->_reloadSource 		if ($self->{__reloadSource});
   if (exists $args{as}) {
     # delete old params settings
-    $self->clear_param();
+	# I don't know if this is a bug or a change in H::T::Pro interface
+	# however
+	if ($self->can('clear_params')) {
+    	$self->clear_params();
+	} else {
+    	$self->clear_param();
+	}
 		$self->param(%{$args{as}});
   }
   return $self->SUPER::output(print_to => $args{print_to});

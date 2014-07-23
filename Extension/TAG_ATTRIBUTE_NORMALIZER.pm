@@ -1,6 +1,6 @@
 package HTML::Template::Pro::Extension::TAG_ATTRIBUTE_NORMALIZER;
 
-$VERSION 			= "0.01";
+$VERSION 			= "0.11";
 sub Version 		{ $VERSION; }
 
 use Carp;

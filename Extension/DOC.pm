@@ -1,6 +1,6 @@
 package HTML::Template::Pro::Extension::DOC;
 
-$VERSION 		= "0.01";
+$VERSION 		= "0.11";
 sub Version 		{ $VERSION; }
 
 use Carp;

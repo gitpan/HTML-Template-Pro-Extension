@@ -1,5 +1,8 @@
 Revision history for Perl extension HTML::Template::Pro::Extension.
 
+0.11 Wed Jul 23 15:19:04 2014
+	- Update documentation
+
 0.10 (2009-10-27)
 =================
 - A change in H::T::Pro interface (probabily). I don't find anymore clear_param

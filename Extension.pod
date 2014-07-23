@@ -15,7 +15,7 @@ HTML::Template::Pro::Extension - Extension modules for HTML::Template::Pro
     |;
 
  my $comp       = new HTML::Template::Pro::Extension(
-                                            file => \$text,
+                                            tmplfile => \$text,
                                             plugins=>["DO_NOTHING"],
                         );
 
@@ -36,7 +36,7 @@ HTML::Template::Pro::Extension - Extension modules for HTML::Template::Pro
 
     |;
  $comp->plugin_add("SLASH_VAR");
- $comp->file(\$text);
+ $comp->tmplfile(\$text);
  $comp->param('test' => "YES");
  print $comp->output;
 
@@ -57,7 +57,7 @@ HTML::Template::Pro::Extension - Extension modules for HTML::Template::Pro
      </HTML>
      |;
  $comp->plugin_add("HEAD_BODY");
- $comp->file(\$text);
+ $comp->tmplfile(\$text);
  $comp->autoDeleteHeader(1);
  print $comp->output;
  print "and the header is..." . $comp->header. "\n";
@@ -81,7 +81,7 @@ HTML::Template::Pro::Extension - Extension modules for HTML::Template::Pro
 
     |;
  $comp->autoDeleteHeader(0);
- $comp->file(\$text);
+ $comp->tmplfile(\$text);
  $comp->plugin_add("DOC");
  print $comp->output;
 
@@ -105,7 +105,7 @@ HTML::Template::Pro::Extension - Extension modules for HTML::Template::Pro
 
     |;
  $comp->plugin_add("CSTART");
- $comp->file(\$text);
+ $comp->tmplfile(\$text);
  print $comp->output . "\n";
 
  #   OUTPUT:
@@ -126,7 +126,7 @@ HTML::Template::Pro::Extension - Extension modules for HTML::Template::Pro
     |;
 
  $comp->plugin_add("IF_TERN");
- $comp->file(\$text);
+ $comp->tmplfile(\$text);
  $comp->param('test' => 1);
  print $comp->output . "\n";
 
@@ -190,13 +190,13 @@ as parent object.
 
 to unload all plugins
 
-=item * added a single "file" method 
+=item * added a single "tmplfile" method 
 
 to pass template in scalar, scalarref, arrayref and filehandle mode. A
 
 =item * pass template after module initialization
 
-use "file" method to modify template text after class initialization.
+use "tmplfile" method to modify template text after class initialization.
 
 =back
 
@@ -257,7 +257,7 @@ parameters present in this template
 
 Under costruction
 
-=head2 file( [ $filepath | \$text | \@lines | *FH ] )
+=head2 tmplfile( [ $filepath | \$text | \@lines | *FH ] )
 
 Set the template. See filename, scalarref, arrayref, filehandle methods of 
 HTML::Template::Pro to understand difference between different data type.

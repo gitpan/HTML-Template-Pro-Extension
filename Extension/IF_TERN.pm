@@ -1,6 +1,6 @@
 package HTML::Template::Pro::Extension::IF_TERN;
 
-$VERSION 			= "0.01";
+$VERSION 			= "0.11";
 sub Version 		{ $VERSION; }
 
 use Carp;

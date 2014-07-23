@@ -1,6 +1,6 @@
 package HTML::Template::Pro::Extension::SLASH_VAR;
 
-$VERSION 			= "0.03";
+$VERSION 			= "0.11";
 sub Version 		{ $VERSION; }
 
 use Carp;
